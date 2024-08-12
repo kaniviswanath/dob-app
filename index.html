@@ -63,6 +63,8 @@ function Calculate(){
   Input value: ${input}<br>
   Formatted date: ${inputDate} <br>
   currentDate: ${currentDate}<br>
+  Year Difference: ${getYearValue(inputDate,currentDate)}<br>
+  Month Difference: ${getMonthValue(inputDate,currentDate)}<br>
   Day Difference: ${dayDiff}<br>
   Hour Difference: ${hrDiff}<br>
   Minute Difference: ${minDiff}<br>
@@ -71,6 +73,14 @@ function Calculate(){
 }else{
     document.getElementById("displat-data").innerHTML=
     "select valid data";
+}
+function getMonthValue(value1,value2){
+let year = getYearValue(value1,value2);
+let month = year * 12 + (value2.getMonth()- value1.getMonth());
+return month
+}
+function getYearValue(value1,value2){
+return value2.getFullYear() - value1.getFullYear();
 }
 }
 </script>
