@@ -30,6 +30,9 @@
     hr{
         border-top: 1px dashed;
     }
+    #display-data{
+        text-align: left;
+    }
         </style>
 </head>
 <body>
@@ -51,10 +54,23 @@ function Calculate(){
    if(Date.parse(input)){
     let inputDate = new Date(input);
     let currentDate = new Date();
+    let milSecDiff = parseInt(currentDate.getTime())-parseInt(inputDate.getTime());
+    let secDiff = Math.floor(milSecDiff /1000);
+    let minDiff = Math.floor(secDiff / 60);
+    let hrDiff = Math.floor(minDiff / 60);
+    let dayDiff = Math.floor(hrDiff / 24);
    document.getElementById("display-data").innerHTML=`
   Input value: ${input}<br>
   Formatted date: ${inputDate} <br>
-  currentDate: ${currentDate}`;
+  currentDate: ${currentDate}<br>
+  Day Difference: ${dayDiff}<br>
+  Hour Difference: ${hrDiff}<br>
+  Minute Difference: ${minDiff}<br>
+  secound Difference: ${secDiff}<br>
+  Millisecond Difference: ${milSecDiff}`;
+}else{
+    document.getElementById("displat-data").innerHTML=
+    "select valid data";
 }
 }
 </script>
